@@ -1,6 +1,5 @@
 import { formatCurrency } from "../../utils/helpers";
 
-// تعریف نوع برای props
 interface CartItemProps {
   item: {
     pizzaId: number;
@@ -11,7 +10,8 @@ interface CartItemProps {
 }
 
 function CartItem({ item }: CartItemProps) {
-  const { pizzaId, name, quantity, totalPrice } = item;
+  // pizzaId,
+  const { name, quantity, totalPrice } = item;
 
   return (
     <li>

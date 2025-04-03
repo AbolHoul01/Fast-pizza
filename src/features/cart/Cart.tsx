@@ -1,41 +1,39 @@
 import { Link } from "react-router-dom";
 
-// تعریف نوع برای یک آیتم در سبد خرید
-interface CartItem {
-  pizzaId: number;
-  name: string;
-  quantity: number;
-  unitPrice: number;
-  totalPrice: number;
-}
+// interface CartItem {
+//   pizzaId: number;
+//   name: string;
+//   quantity: number;
+//   unitPrice: number;
+//   totalPrice: number;
+// }
 
-// تعریف داده‌ی سبد خرید
-const fakeCart: CartItem[] = [
-  {
-    pizzaId: 12,
-    name: "Mediterranean",
-    quantity: 2,
-    unitPrice: 16,
-    totalPrice: 32,
-  },
-  {
-    pizzaId: 6,
-    name: "Vegetale",
-    quantity: 1,
-    unitPrice: 13,
-    totalPrice: 13,
-  },
-  {
-    pizzaId: 11,
-    name: "Spinach and Mushroom",
-    quantity: 1,
-    unitPrice: 15,
-    totalPrice: 15,
-  },
-];
+// const fakeCart: CartItem[] = [
+//   {
+//     pizzaId: 12,
+//     name: "Mediterranean",
+//     quantity: 2,
+//     unitPrice: 16,
+//     totalPrice: 32,
+//   },
+//   {
+//     pizzaId: 6,
+//     name: "Vegetale",
+//     quantity: 1,
+//     unitPrice: 13,
+//     totalPrice: 13,
+//   },
+//   {
+//     pizzaId: 11,
+//     name: "Spinach and Mushroom",
+//     quantity: 1,
+//     unitPrice: 15,
+//     totalPrice: 15,
+//   },
+// ];
 
 function Cart() {
-  const cart: CartItem[] = fakeCart;
+  // const cart: CartItem[] = fakeCart;
 
   return (
     <div>
