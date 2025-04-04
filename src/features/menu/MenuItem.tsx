@@ -14,7 +14,7 @@ interface MenuItemProps {
 }
 
 function MenuItem({ pizza }: MenuItemProps) {
-  const { id, name, unitPrice, ingredients, soldOut, imageUrl } = pizza;
+  const {name, unitPrice, ingredients, soldOut, imageUrl } = pizza;
 
   return (
     <li>
