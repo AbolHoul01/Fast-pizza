@@ -1,7 +1,6 @@
 import { formatCurrency } from "../../utils/helpers";
 
 
-// تعریف نوع برای props
 interface OrderItemProps {
   item: {
     quantity: number;
