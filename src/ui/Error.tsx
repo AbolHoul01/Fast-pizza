@@ -1,4 +1,5 @@
-import { useNavigate, useRouteError } from "react-router-dom";
+import { useRouteError } from "react-router-dom";
+import LinkButton from "./LinkButton";
 
 // Type guard for unknown data type
 function isErrorObject(error: unknown): error is { data?: string; message?: string } {
@@ -6,7 +7,6 @@ function isErrorObject(error: unknown): error is { data?: string; message?: stri
 }
 
 function Error() {
-  const navigate = useNavigate();
   const error = useRouteError();
 
   const getErrorMessage = (error: unknown): string => {
@@ -17,7 +17,8 @@ function Error() {
     <div>
       <h1>Something went wrong 😢</h1>
       <p>{getErrorMessage(error)}</p>
-      <button onClick={() => navigate(-1)}>&larr; Go back</button>
+
+      <LinkButton to='-1'>&larr; Go back</LinkButton>
     </div>
   );
 }

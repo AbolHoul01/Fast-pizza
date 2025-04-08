@@ -9,13 +9,13 @@ interface PizzaMenuItem {
 
 function Menu() {
   const menu = useLoaderData() as PizzaMenuItem[];
-  
+
   return (
-    <h1>
+    <ul className="divide-y divide-stone-400 px-2">
       {menu.map((pizza) => (
         <MenuItem pizza={pizza} key={pizza.id} />
       ))}
-    </h1>
+    </ul>
   );
 }
 
