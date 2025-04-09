@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import { createOrder } from "../../services/apiRestaurant";
 import Button from "../../ui/Button";
+import { useSelector } from "react-redux";
 
 // https://uibakery.io/regex-library/phone-number
 const isValidPhone = (str: string): boolean =>
@@ -48,6 +49,7 @@ const fakeCart: CartItem[] = [
 ];
 
 function CreateOrder() {
+  const username = useSelector((state) => state.user.username);
   const navigation = useNavigation();
   const isSubmitting = navigation.state === "submitting";
 
@@ -64,7 +66,7 @@ function CreateOrder() {
       <Form method="POST">
         <div className="mb-5 flex gap-2 flex-col sm:flex-row sm:items-center">
           <label className="sm:basis-40">First Name</label>
-          <input className="input grow" type="text" name="customer" required />
+          <input className="input grow" type="text" name="customer" defaultValue={username} required />
         </div>
 
         <div className="mb-5 flex gap-2 flex-col sm:flex-row sm:items-center">
@@ -72,7 +74,11 @@ function CreateOrder() {
           <div className="grow">
             <input className="input w-full" type="tel" name="phone" required />
           </div>
-          {formErrors?.phone && <p className="text-xs mt-2 text-red-500 bg-red-200 p-2 rounded-md sm:flex-row">{formErrors.phone}</p>}
+          {formErrors?.phone && (
+            <p className="text-xs mt-2 text-red-500 bg-red-200 p-2 rounded-md sm:flex-row">
+              {formErrors.phone}
+            </p>
+          )}
         </div>
 
         <div className="mb-5 flex gap-2 flex-col sm:flex-row sm:items-center">
@@ -96,7 +102,9 @@ function CreateOrder() {
             checked={withPriority}
             onChange={(e) => setWithPriority(e.target.checked)}
           />
-          <label htmlFor="priority" className="font-medium">Want to give your order priority?</label>
+          <label htmlFor="priority" className="font-medium">
+            Want to give your order priority?
+          </label>
         </div>
 
         <div>
