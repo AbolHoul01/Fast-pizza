@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { RootState } from "../../store"; 
+import { RootState } from "../../store";
 
 type CartItem = {
   pizzaId: number;
@@ -37,9 +37,7 @@ const cartSlice = createSlice({
     },
 
     deleteItem(state, action: PayloadAction<number>) {
-      state.cart = state.cart.filter(
-        (item) => item.pizzaId !== action.payload
-      );
+      state.cart = state.cart.filter((item) => item.pizzaId !== action.payload);
     },
 
     increaseItemQuantity(state, action: PayloadAction<number>) {
@@ -54,6 +52,8 @@ const cartSlice = createSlice({
       if (!item) return;
       item.quantity--;
       item.totalPrice = item.quantity * item.unitPrice;
+
+      if (item.quantity === 0) cartSlice.caseReducers.deleteItem(state, action);
     },
 
     clearCart(state) {
